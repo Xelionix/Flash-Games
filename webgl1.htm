@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derp's Flash Games</title>
+    <link rel="icon" type="image/x-icon" href="spreadsheetlogo.ico">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        h1 {
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+
+        #gameContainer {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .gameItem {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .gameImage {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Derp's Web Games</h1>
+</header>
+
+<ul>
+    <li><a href="#" onclick="loadGame('your_game_url1', 'Game 1', 'game1_image.jpg')">Game 1</a></li>
+    <li><a href="#" onclick="loadGame('your_game_url2', 'Game 2', 'game2_image.jpg')">Game 2</a></li>
+    <li><a href="#" onclick="loadGame('your_game_url3', 'Game 3', 'game3_image.jpg')">Game 3</a></li>
+    <!-- Add more menu items as needed -->
+</ul>
+
+<div id="gameContainer"></div>
+
+<script>
+    function loadGame(gameUrl, gameName, imageUrl) {
+        var gameContainer = document.getElementById('gameContainer');
+        gameContainer.innerHTML = ''; // Clear previous content
+
+        var embedCode = `
+            <iframe src="${gameUrl}" width="100%" height="600" frameborder="0"></iframe>
+        `;
+
+        var gameItem = document.createElement('div');
+        gameItem.className = 'gameItem';
+
+        var gameImage = document.createElement('img');
+        gameImage.src = imageUrl;
+        gameImage.alt = gameName + ' Image';
+        gameImage.className = 'gameImage';
+
+        var gameNameElement = document.createElement('h2');
+        gameNameElement.textContent = gameName;
+
+        gameItem.appendChild(gameImage);
+        gameItem.appendChild(gameNameElement);
+        gameItem.innerHTML += embedCode;
+
+        gameContainer.appendChild(gameItem);
+    }
+</script>
+
+</body>
+</html>
