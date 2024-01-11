@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Derp's Games</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #111;
+    }
+
+    #gameContainer {
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    .gameItem {
+      border: 1px solid #ccc;
+      margin: 10px;
+      padding: 10px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .gameImage {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Derp's Flash Games</h1>
+</header>
+
+<ul>
+  <li><a href="#" onclick="loadSWF('angry_birds.swf', 'Angry Birds', 'images/angry_birds.jpg')">Angry Birds</a></li>
+  <li><a href="#" onclick="loadSWF('placeholder1.swf', 'Game 1', 'images/placeholder1.jpg')">Game 1</a></li>
+  <li><a href="#" onclick="loadSWF('placeholder2.swf', 'Game 2', 'images/placeholder2.jpg')">Game 2</a></li>
+  <!-- Add more menu items as needed -->
+</ul>
+
+<div id="gameContainer"></div>
+
+<script>
+  function loadSWF(swfFile, gameName, imageUrl) {
+    var gameContainer = document.getElementById('gameContainer');
+    gameContainer.innerHTML = ''; // Clear previous content
+
+    var embedCode = `
+      <object type="application/x-shockwave-flash" data="${swfFile}" width="100%" height="600">
+        <param name="movie" value="${swfFile}" />
+        <param name="quality" value="high" />
+      </object>
+    `;
+
+    var gameItem = document.createElement('div');
+    gameItem.className = 'gameItem';
+
+    var gameImage = document.createElement('img');
+    gameImage.src = imageUrl;
+    gameImage.alt = gameName + ' Image';
+    gameImage.className = 'gameImage';
+
+    var gameNameElement = document.createElement('h2');
+    gameNameElement.textContent = gameName;
+
+    gameItem.appendChild(gameImage);
+    gameItem.appendChild(gameNameElement);
+    gameItem.innerHTML += embedCode;
+
+    gameContainer.appendChild(gameItem);
+  }
+</script>
+
+</body>
+</html>
