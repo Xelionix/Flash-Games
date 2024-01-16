@@ -75,24 +75,30 @@
 </header>
 
 <ul>
-    <li><a href="#" onclick="loadScratchProject('928378222', 'Five Nights at idksterling\'s', 'THISMANMUSTHAVEADEATHWISH.jpg')">Five Nights at idksterling's</a></li>
+    <li><a href="#" onclick="loadJavaScript('subway.js', 'SubwaySurfers')">Subway Surfers</a></li>
     <!-- Add more menu items as needed -->
 </ul>
 
 <div id="gameContainer"></div>
 
-<script src="https://cdn.assets.scratch.mit.edu/internal-libs/scratch/3.0/scratch-render-3.0.0.js"></script>
 <script>
-    function loadScratchProject(projectId, gameName, imageUrl) {
+    function loadJavaScript(scriptUrl, scriptName) {
         var gameContainer = document.getElementById('gameContainer');
         gameContainer.innerHTML = ''; // Clear previous content
 
-        const container = document.createElement('div');
-        container.id = 'scratch-container';
-        gameContainer.appendChild(container);
+        var scriptElement = document.createElement('script');
+        scriptElement.src = scriptUrl;
 
-        const renderer = new window.RenderWebGL(container, projectId);
-        renderer.start();
+        var gameItem = document.createElement('div');
+        gameItem.className = 'gameItem';
+
+        var scriptNameElement = document.createElement('h2');
+        scriptNameElement.textContent = scriptName;
+
+        gameItem.appendChild(scriptNameElement);
+        gameItem.appendChild(scriptElement);
+
+        gameContainer.appendChild(gameItem);
     }
 </script>
 
