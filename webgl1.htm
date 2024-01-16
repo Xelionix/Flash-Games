@@ -75,7 +75,7 @@
 </header>
 
 <ul>
-    <li><a href="#" onclick="loadScratchProject('928378222', 'Five Nights at idksterling\'s', 'THISMANMUSTHAVEADEATHWISH.jpg')">Five Ngihts at Idksterling's</a></li>
+    <li><a href="#" onclick="loadScratchProject('928378222', 'Five Nights at idksterling\'s', 'THISMANMUSTHAVEADEATHWISH.jpg')">Five Nights at idksterling's</a></li>
     <!-- Add more menu items as needed -->
 </ul>
 
@@ -93,22 +93,6 @@
 
         const renderer = new window.RenderWebGL(container, projectId);
         renderer.start();
-
-        var gameItem = document.createElement('div');
-        gameItem.className = 'gameItem';
-
-        var gameImage = document.createElement('img');
-        gameImage.src = imageUrl;
-        gameImage.alt = gameName + ' Image';
-        gameImage.className = 'gameImage';
-
-        var gameNameElement = document.createElement('h2');
-        gameNameElement.textContent = gameName;
-
-        gameItem.appendChild(gameImage);
-        gameItem.appendChild(gameNameElement);
-
-        gameContainer.appendChild(gameItem);
     }
 </script>
 
