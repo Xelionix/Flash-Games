@@ -75,7 +75,7 @@
 </header>
 
 <ul>
-    <li><a href="#" onclick="loadJavaScript('subway.js', 'SubwaySurfers')">Subway Surfers</a></li>
+    <li><a href="#" onclick="loadJavaScript('Game1.html', 'Game1')">Game1.html</a></li>
     <!-- Add more menu items as needed -->
 </ul>
 
@@ -86,8 +86,10 @@
         var gameContainer = document.getElementById('gameContainer');
         gameContainer.innerHTML = ''; // Clear previous content
 
-        var scriptElement = document.createElement('script');
-        scriptElement.src = scriptUrl;
+        var iframeElement = document.createElement('iframe');
+        iframeElement.src = scriptUrl;
+        iframeElement.width = '100%';
+        iframeElement.height = '600px';
 
         var gameItem = document.createElement('div');
         gameItem.className = 'gameItem';
@@ -96,7 +98,7 @@
         scriptNameElement.textContent = scriptName;
 
         gameItem.appendChild(scriptNameElement);
-        gameItem.appendChild(scriptElement);
+        gameItem.appendChild(iframeElement);
 
         gameContainer.appendChild(gameItem);
     }
